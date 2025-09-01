@@ -10,4 +10,11 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FBags.Application\FBags.Application.csproj" />
+    <ProjectReference Include="..\FBags.Communication\FBags.Communication.csproj" />
+    <ProjectReference Include="..\FBags.Exception\FBags.Exception.csproj" />
+    <ProjectReference Include="..\FBags.Infrastructure\FBags.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FBags.Communication\FBags.Communication.csproj" />
+    <ProjectReference Include="..\FBags.Domain\FBags.Domain.csproj" />
+    <ProjectReference Include="..\FBags.Exception\FBags.Exception.csproj" />
+  </ItemGroup>
+
 </Project>
