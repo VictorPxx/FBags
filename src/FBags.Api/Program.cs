@@ -1,3 +1,4 @@
+using FBags.Application;
 using FBags.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 // Configure the HTTP request pipeline.

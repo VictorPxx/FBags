@@ -4,7 +4,6 @@ using FBags.Infrastructure.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Data;
 
 namespace FBags.Infrastructure;
 public static class DependencyInjectionExtension

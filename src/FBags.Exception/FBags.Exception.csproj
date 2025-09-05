@@ -12,11 +12,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceErrorMessages.resx</DependentUpon>
     </Compile>
-    <Compile Update="ResourceErrorMessages.en-US.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceErrorMessages.en-US.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
