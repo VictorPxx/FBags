@@ -1,8 +1,7 @@
-﻿using AutoMapper;
+﻿using FBags.Application.AutoMapper;
 using FBags.Communication.Requests;
 using FBags.Communication.Responses;
 using FBags.Domain;
-using FBags.Domain.Entities;
 using FBags.Domain.Repositories.Bags;
 using FBags.Exception.ExceptionBase;
 
@@ -11,40 +10,37 @@ public class RegisterBagsUseCase : IRegisterBagsUseCase
 {
     private readonly IBagsRepository _bagsRepository;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
 
     public RegisterBagsUseCase(
         IBagsRepository bagsRepository,
-        IUnitOfWork unitOfWork,
-        IMapper mapper)
+        IUnitOfWork unitOfWork)
     {
         _bagsRepository = bagsRepository;
         _unitOfWork = unitOfWork;
-        _mapper = mapper;
     }
 
     public ResponseRegisteredBagJson Execute(RequestRegisterBagJson request)
     {
         Validate(request);
-        
-        var entity = _mapper.Map<Bag>(request);
+
+        var entity = request.RequestToEntity();
 
         _bagsRepository.Add(entity);
-        
+
         _unitOfWork.Commit();
 
-        return _mapper.Map<ResponseRegisteredBagJson>(entity);
+        return entity.EntityToResponse();
     }
 
     private void Validate(RequestRegisterBagJson request)
     {
         var validator = new RegisterBagsValidator().Validate(request);
 
-        if(!validator.IsValid)
+        if (!validator.IsValid)
         {
             var errorMessages = validator.Errors.Select(e => e.ErrorMessage).ToList();
 
-            throw new ValidationError(errorMessages) ;
+            throw new ValidationError(errorMessages);
         }
     }
 }

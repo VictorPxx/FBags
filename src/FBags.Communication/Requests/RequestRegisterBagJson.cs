@@ -9,4 +9,6 @@ public class RequestRegisterBagJson
     public string Color { get; set; } = string.Empty;
     public string UrlImage { get; set; } = string.Empty;
     public PaymentType PaymentType { get; set; }
+
+    
 }
